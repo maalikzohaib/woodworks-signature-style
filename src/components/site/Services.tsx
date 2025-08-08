@@ -26,7 +26,7 @@ const Services = () => {
 
 const ServiceCard = ({ title, img, points }: { title: string; img: string; points: string[] }) => (
   <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-    <img src={img} alt={`${title} showcase`} className="w-full h-56 object-cover" loading="lazy"/>
+    <img src={img} alt={`${title} showcase`} className="w-full h-72 md:h-64 object-cover" loading="lazy"/>
     <CardHeader>
       <CardTitle>{title}</CardTitle>
       <CardDescription>Premium craftsmanship with timeless aesthetics.</CardDescription>
