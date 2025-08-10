@@ -36,13 +36,11 @@ const Index = () => {
               <h2 className="text-3xl font-bold">About Our Legacy</h2>
               <p className="text-muted-foreground">We are a team of master carpenters and interior specialists delivering timeless spaces with meticulous attention to detail. From concept to installation, we manage the entire journey.</p>
             </div>
-            <div className="grid grid-cols-6 auto-rows-[110px] md:auto-rows-[160px] gap-3">
-              <img src="/lovable-uploads/184542e9-556a-4893-a0a6-c633732f54c3.png" alt="Grand door with marble inlay" className="col-span-3 row-span-4 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/08ae6eeb-6923-4707-be39-f764392d0da1.png" alt="Custom cane cabinet" className="col-span-3 row-span-2 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/cdb6a938-ca92-47a5-9436-f2e2a6c401a6.png" alt="Modern luxury kitchen" className="col-span-2 row-span-2 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/937b1066-76f3-4a52-99b4-93afe17a9e3c.png" alt="Elegant console and mirror" className="col-span-2 row-span-2 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/82e34e89-e0fc-4782-b8c5-0c95c4a6bc94.png" alt="Decorative glass door set" className="col-span-2 row-span-3 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/23826db3-f25f-45f0-9327-f417e8b2a558.png" alt="Luxurious bedroom interior" className="col-span-3 row-span-3 h-full w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
+            <div className="grid grid-cols-2 gap-4">
+              <img src="/lovable-uploads/184542e9-556a-4893-a0a6-c633732f54c3.png" alt="Grand door with marble inlay" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
+              <img src="/lovable-uploads/08ae6eeb-6923-4707-be39-f764392d0da1.png" alt="Custom cane cabinet" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
+              <img src="/lovable-uploads/cdb6a938-ca92-47a5-9436-f2e2a6c401a6.png" alt="Modern luxury kitchen" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
+              <img src="/lovable-uploads/937b1066-76f3-4a52-99b4-93afe17a9e3c.png" alt="Elegant console and mirror" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
             </div>
           </div>
         </section>
