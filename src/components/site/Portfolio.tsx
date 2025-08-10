@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const imgs = [
   "/lovable-uploads/184542e9-556a-4893-a0a6-c633732f54c3.png",
@@ -10,6 +12,8 @@ const imgs = [
 ];
 
 const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
   return (
     <section id="portfolio" className="bg-secondary/50 py-16 md:py-24">
       <div className="container mx-auto">
@@ -19,7 +23,23 @@ const Portfolio = () => {
         </header>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {[...new Set(imgs)].map((src) => (
-            <img key={src} src={src} alt="Project showcase by Signature Home Style" className="w-full h-64 object-cover rounded-md border hover:shadow-md hover-scale" loading="lazy"/>
+            <Dialog key={src}>
+              <DialogTrigger asChild>
+                <img 
+                  src={src} 
+                  alt="Project showcase by Signature Home Style" 
+                  className="w-full h-64 object-cover rounded-md border hover:shadow-md hover-scale cursor-pointer" 
+                  loading="lazy"
+                />
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl w-full h-auto">
+                <img 
+                  src={src} 
+                  alt="Project showcase by Signature Home Style" 
+                  className="w-full h-auto object-contain rounded-md"
+                />
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
         <div className="mt-8 flex items-center justify-center">

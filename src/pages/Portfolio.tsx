@@ -1,6 +1,7 @@
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import FloatingActions from "@/components/site/FloatingActions";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useEffect } from "react";
 
 const allImages = [
@@ -54,14 +55,25 @@ const Portfolio = () => {
           <div className="container mx-auto">
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {allImages.map((src, index) => (
-                <div key={src} className="group">
-                  <img 
-                    src={src} 
-                    alt={`Signature Home Style project ${index + 1}`} 
-                    className="w-full h-64 object-cover rounded-lg border shadow-md hover:shadow-lg hover-scale transition-all duration-300" 
-                    loading="lazy"
-                  />
-                </div>
+                <Dialog key={src}>
+                  <DialogTrigger asChild>
+                    <div className="group cursor-pointer">
+                      <img 
+                        src={src} 
+                        alt={`Signature Home Style project ${index + 1}`} 
+                        className="w-full h-64 object-cover rounded-lg border shadow-md hover:shadow-lg hover-scale transition-all duration-300" 
+                        loading="lazy"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-full h-auto">
+                    <img 
+                      src={src} 
+                      alt={`Signature Home Style project ${index + 1}`} 
+                      className="w-full h-auto object-contain rounded-md"
+                    />
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
           </div>
