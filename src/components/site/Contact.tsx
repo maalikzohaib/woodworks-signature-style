@@ -13,19 +13,24 @@ const Contact = () => {
       <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Contact Information</h3>
-          <p className="text-muted-foreground flex items-center gap-2"><MapPin className="h-4 w-4"/> City Center</p>
-          <p className="text-muted-foreground flex items-center gap-2"><Phone className="h-4 w-4"/> +00 123 456 789</p>
-          <p className="text-muted-foreground flex items-center gap-2"><Mail className="h-4 w-4"/> hello@signaturehomestyle.com</p>
+          <p className="text-muted-foreground flex items-center gap-2">
+            <MapPin className="h-4 w-4"/>
+            <a href="https://maps.google.com/maps?q=31.4823698%2C74.4160444&z=17&hl=en" target="_blank" rel="noopener" className="hover:text-primary transition-colors">
+              Lahore, Pakistan
+            </a>
+          </p>
+          <p className="text-muted-foreground flex items-center gap-2"><Phone className="h-4 w-4"/> +92 300 4763229</p>
+          <p className="text-muted-foreground flex items-center gap-2"><Mail className="h-4 w-4"/> signaturehomewithstyle@gmail.com</p>
           <p className="text-muted-foreground flex items-center gap-2"><Clock className="h-4 w-4"/> Mon–Sat: 10:00–18:00</p>
           <p className="text-muted-foreground">Service areas: City Center and surrounding regions.</p>
           <div className="flex gap-2">
             <Button asChild variant="hero">
-              <a href="https://wa.me/00123456789" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+              <a href="https://wa.me/923004763229" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
                 <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Us
               </a>
             </Button>
             <Button asChild variant="outline">
-              <a href="tel:+00123456789" aria-label="Call Signature Home Style">Call Now</a>
+              <a href="tel:+923004763229" aria-label="Call Signature Home Style">Call Now</a>
             </Button>
           </div>
         </div>

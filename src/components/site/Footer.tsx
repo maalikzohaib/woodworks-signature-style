@@ -23,9 +23,14 @@ const Footer = () => {
           </nav>
           <div className="space-y-3">
             <h4 className="font-semibold">Contact</h4>
-            <p className="text-sm text-muted-foreground flex items-center gap-2"><MapPin className="h-4 w-4"/> City Center</p>
-            <p className="text-sm text-muted-foreground flex items-center gap-2"><Phone className="h-4 w-4"/> +00 123 456 789</p>
-            <p className="text-sm text-muted-foreground flex items-center gap-2"><Mail className="h-4 w-4"/> hello@signaturehomestyle.com</p>
+            <p className="text-sm text-muted-foreground flex items-center gap-2">
+              <MapPin className="h-4 w-4"/>
+              <a href="https://maps.google.com/maps?q=31.4823698%2C74.4160444&z=17&hl=en" target="_blank" rel="noopener" className="hover:text-primary transition-colors">
+                Lahore, Pakistan
+              </a>
+            </p>
+            <p className="text-sm text-muted-foreground flex items-center gap-2"><Phone className="h-4 w-4"/> +92 300 4763229</p>
+            <p className="text-sm text-muted-foreground flex items-center gap-2"><Mail className="h-4 w-4"/> signaturehomewithstyle@gmail.com</p>
           </div>
           <div className="space-y-3">
             <h4 className="font-semibold">Newsletter</h4>

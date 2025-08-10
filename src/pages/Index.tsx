@@ -32,15 +32,60 @@ const Index = () => {
         <Hero />
         <section id="about" className="container mx-auto py-12 md:py-20">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <h2 className="text-3xl font-bold">About Our Legacy</h2>
-              <p className="text-muted-foreground">We are a team of master carpenters and interior specialists delivering timeless spaces with meticulous attention to detail. From concept to installation, we manage the entire journey.</p>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  At Signature Home Style, we believe that exceptional craftsmanship is an art form passed down through generations. 
+                  With over a decade of experience in bespoke carpentry and interior design, our master craftsmen combine traditional 
+                  techniques with contemporary innovation.
+                </p>
+                <p>
+                  From the initial consultation to the final installation, we manage every aspect of your project with meticulous 
+                  attention to detail. Our commitment to excellence has earned us the trust of discerning homeowners who demand 
+                  nothing but the finest quality.
+                </p>
+                <p>
+                  Whether it's a statement entrance door, a luxury kitchen, or custom wardrobes, we create spaces that reflect 
+                  your unique style and stand the test of time. Every piece is handcrafted with precision and passion.
+                </p>
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img src="/lovable-uploads/184542e9-556a-4893-a0a6-c633732f54c3.png" alt="Grand door with marble inlay" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/08ae6eeb-6923-4707-be39-f764392d0da1.png" alt="Custom cane cabinet" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/cdb6a938-ca92-47a5-9436-f2e2a6c401a6.png" alt="Modern luxury kitchen" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
-              <img src="/lovable-uploads/937b1066-76f3-4a52-99b4-93afe17a9e3c.png" alt="Elegant console and mirror" className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale" loading="lazy"/>
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <img 
+                    src="/lovable-uploads/184542e9-556a-4893-a0a6-c633732f54c3.png" 
+                    alt="Grand door with marble inlay" 
+                    className="h-48 w-full object-cover rounded-xl border shadow-md hover-scale animate-fade-in" 
+                    style={{ animationDelay: '0.1s' }}
+                    loading="lazy"
+                  />
+                  <img 
+                    src="/lovable-uploads/cdb6a938-ca92-47a5-9436-f2e2a6c401a6.png" 
+                    alt="Modern luxury kitchen" 
+                    className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale animate-fade-in" 
+                    style={{ animationDelay: '0.3s' }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="space-y-4 mt-8">
+                  <img 
+                    src="/lovable-uploads/08ae6eeb-6923-4707-be39-f764392d0da1.png" 
+                    alt="Custom cane cabinet" 
+                    className="h-64 w-full object-cover rounded-xl border shadow-md hover-scale animate-fade-in" 
+                    style={{ animationDelay: '0.2s' }}
+                    loading="lazy"
+                  />
+                  <img 
+                    src="/lovable-uploads/937b1066-76f3-4a52-99b4-93afe17a9e3c.png" 
+                    alt="Elegant console and mirror" 
+                    className="h-48 w-full object-cover rounded-xl border shadow-md hover-scale animate-fade-in" 
+                    style={{ animationDelay: '0.4s' }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
