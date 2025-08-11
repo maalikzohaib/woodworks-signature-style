@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className={cn("container mx-auto flex h-16 items-center justify-between")}> 
-        <a href="/home" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <img src={LOGO} alt="Signature Home Style logo" className="h-8 w-auto rounded-sm" loading="eager" />
           <span className="font-semibold text-lg">Signature Home Style</span>
         </a>
