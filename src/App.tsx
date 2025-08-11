@@ -6,6 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
+import QuotationPage from "./pages/QuotationPage";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import QuoteNew from "./pages/QuoteNew";
+import QuoteEdit from "./pages/QuoteEdit";
+import QuoteView from "./pages/QuoteView";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +24,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/quotation" element={<QuotationPage />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/quote/new" element={<QuoteNew />} />
+          <Route path="/quote/edit/:id" element={<QuoteEdit />} />
+          <Route path="/quote/view/:id" element={<QuoteView />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

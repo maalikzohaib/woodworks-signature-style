@@ -43,7 +43,15 @@ const Footer = () => {
         </div>
         <div className="mt-10 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Signature Home Style. All rights reserved.</p>
-          <p>Made with premium craftsmanship and attention to detail.</p>
+          <div className="flex items-center gap-4">
+            <p>Made with premium craftsmanship and attention to detail.</p>
+            <a 
+              href="/admin/login" 
+              className="text-primary hover:underline text-xs"
+            >
+              Admin
+            </a>
+          </div>
         </div>
       </div>
     </footer>
