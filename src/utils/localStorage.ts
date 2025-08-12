@@ -74,16 +74,19 @@ export const initializeExampleData = (): void => {
   if (quotes.length === 0) {
     const exampleQuote: Quote = {
       id: "example-1",
-      quoteNo: "34764",
-      date: "2025-04-14",
-      customerReference: "Customer Ahmad sahib 243-R",
-      terms: "Wardrobe",
+    quoteNo: "34764",
+    date: "2025-04-14",
+    customerName: "Ahmad sahib",
+    customerAddress: "243-R, Lahore",
+    customerReference: "Customer Ahmad sahib 243-R",
+    terms: "Wardrobe",
       quotationTitle: "Quotation",
       lineItems: [
         {
           id: "item-1",
           description: "Wardrobe Boxing Patex Laminated Sheets With Aluminium Profile + Glass Shutters Assembled In Chinese Hardware with Profile Lights Without Accessories",
           quantity: 54,
+          unit: "Sft",
           rate: 3000,
           total: 162000
         },
@@ -91,6 +94,7 @@ export const initializeExampleData = (): void => {
           id: "item-2",
           description: "Partition wall with door",
           quantity: 1,
+          unit: "Pcs",
           rate: 200000,
           total: 200000
         },
@@ -98,6 +102,7 @@ export const initializeExampleData = (): void => {
           id: "item-3",
           description: "Lounge cabinets with ss gold powder coated frames & 4 chairs without marble",
           quantity: 1,
+          unit: "Set",
           rate: 343000,
           total: 343000
         }

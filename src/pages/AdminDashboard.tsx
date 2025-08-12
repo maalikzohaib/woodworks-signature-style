@@ -119,7 +119,7 @@ const AdminDashboard = () => {
                   <thead>
                     <tr className="border-b">
                       <th className="text-left p-3">Quote No</th>
-                      <th className="text-left p-3">Customer</th>
+                      <th className="text-left p-3">Customer Name</th>
                       <th className="text-left p-3">Date</th>
                       <th className="text-right p-3">Total</th>
                       <th className="text-center p-3">Status</th>
@@ -130,7 +130,7 @@ const AdminDashboard = () => {
                     {quotes.map((quote) => (
                       <tr key={quote.id} className="border-b hover:bg-muted/50">
                         <td className="p-3 font-mono">{quote.quoteNo}</td>
-                        <td className="p-3">{quote.customerReference}</td>
+                        <td className="p-3">{quote.customerName || quote.customerReference}</td>
                         <td className="p-3">{formatDate(quote.date)}</td>
                         <td className="p-3 text-right font-semibold">
                           {formatCurrency(quote.grandTotal)}

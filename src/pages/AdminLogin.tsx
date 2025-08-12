@@ -104,28 +104,10 @@ const AdminLogin = () => {
             </Button>
           </form>
 
-          <div className="space-y-3 pt-4 border-t">
-            {!existingCredentials && (
-              <Button 
-                variant="outline" 
-                className="w-full" 
-                onClick={handleGenerateCredentials}
-              >
-                <Key className="h-4 w-4 mr-2" />
-                Generate Temporary Credentials
-              </Button>
-            )}
-            
-            {existingCredentials && (
-              <Button 
-                variant="outline" 
-                className="w-full" 
-                onClick={handleResetCredentials}
-              >
-                <RotateCcw className="h-4 w-4 mr-2" />
-                Reset Credentials
-              </Button>
-            )}
+          <div className="text-center pt-4 border-t">
+            <p className="text-sm text-muted-foreground">
+              Use permanent admin credentials to access the system
+            </p>
           </div>
 
           <div className="text-center">

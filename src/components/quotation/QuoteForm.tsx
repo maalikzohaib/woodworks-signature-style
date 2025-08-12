@@ -11,6 +11,7 @@ import { Quote, LineItem, BusinessInfo } from "@/types/quotation";
 import { generateQuoteNumber, calculateLineTotal, calculateGrandTotal, formatCurrency } from "@/utils/quoteUtils";
 import { saveQuote, getBusinessInfo, saveBusinessInfo } from "@/utils/localStorage";
 import { toast } from "sonner";
+import signatureLogo from "@/assets/signature-logo.png";
 
 interface QuoteFormProps {
   initialQuote?: Quote;
@@ -30,10 +31,13 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
       id: crypto.randomUUID(),
       description: "",
       quantity: 1,
+      unit: "Sft",
       rate: 0,
       total: 0
     }]
   );
+  const [customerName, setCustomerName] = useState(initialQuote?.customerName || "");
+  const [customerAddress, setCustomerAddress] = useState(initialQuote?.customerAddress || "");
   const [receivedAmount, setReceivedAmount] = useState(initialQuote?.receivedAmount || 0);
 
   const grandTotal = calculateGrandTotal(lineItems);
@@ -72,6 +76,7 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
       id: crypto.randomUUID(),
       description: "",
       quantity: 1,
+      unit: "Sft",
       rate: 0,
       total: 0
     };
@@ -99,8 +104,8 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
   };
 
   const saveQuoteData = (isDraft: boolean) => {
-    if (!customerReference.trim()) {
-      toast.error("Please enter customer reference");
+    if (!customerName.trim()) {
+      toast.error("Please enter customer name");
       return;
     }
 
@@ -116,6 +121,8 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
       id: initialQuote?.id || crypto.randomUUID(),
       quoteNo,
       date,
+      customerName,
+      customerAddress,
       customerReference,
       terms,
       quotationTitle,
@@ -142,7 +149,7 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-4xl mx-auto space-y-6">
-        {/* Header */}
+        {/* Header with Logo */}
         <div className="flex items-center gap-4">
           <Button 
             variant="ghost" 
@@ -151,11 +158,18 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Dashboard
           </Button>
-          <div>
-            <h1 className="text-2xl font-bold">
-              {mode === "create" ? "Generate New Quote" : "Edit Quote"}
-            </h1>
-            <p className="text-muted-foreground">Fill in the details to create a quotation</p>
+          <div className="flex items-center gap-4">
+            <img 
+              src={signatureLogo} 
+              alt="Signature Home Style Logo" 
+              className="w-12 h-12 object-contain"
+            />
+            <div>
+              <h1 className="text-2xl font-bold">
+                {mode === "create" ? "Generate New Quote" : "Edit Quote"}
+              </h1>
+              <p className="text-muted-foreground">Fill in the details to create a quotation</p>
+            </div>
           </div>
         </div>
 
@@ -170,28 +184,32 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
                 <Label>Business Name</Label>
                 <Input
                   value={businessInfo.name}
-                  onChange={(e) => setBusinessInfo({...businessInfo, name: e.target.value})}
+                  readOnly
+                  className="bg-muted"
                 />
               </div>
               <div className="space-y-2">
                 <Label>Tagline</Label>
                 <Input
                   value={businessInfo.tagline}
-                  onChange={(e) => setBusinessInfo({...businessInfo, tagline: e.target.value})}
+                  readOnly
+                  className="bg-muted"
                 />
               </div>
               <div className="space-y-2">
                 <Label>Address</Label>
                 <Input
                   value={businessInfo.address}
-                  onChange={(e) => setBusinessInfo({...businessInfo, address: e.target.value})}
+                  readOnly
+                  className="bg-muted"
                 />
               </div>
               <div className="space-y-2">
                 <Label>Phone</Label>
                 <Input
                   value={businessInfo.phone}
-                  onChange={(e) => setBusinessInfo({...businessInfo, phone: e.target.value})}
+                  readOnly
+                  className="bg-muted"
                 />
               </div>
             </div>
@@ -228,12 +246,31 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
                 />
               </div>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Customer Name</Label>
+                <Input
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  placeholder="e.g., Ahmad sahib"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Customer Reference</Label>
+                <Input
+                  value={customerReference}
+                  onChange={(e) => setCustomerReference(e.target.value)}
+                  placeholder="e.g., 243-R"
+                />
+              </div>
+            </div>
             <div className="space-y-2">
-              <Label>Customer Reference</Label>
-              <Input
-                value={customerReference}
-                onChange={(e) => setCustomerReference(e.target.value)}
-                placeholder="e.g., Customer Ahmad sahib 243-R"
+              <Label>Customer Address</Label>
+              <Textarea
+                value={customerAddress}
+                onChange={(e) => setCustomerAddress(e.target.value)}
+                placeholder="Enter customer address"
+                rows={2}
               />
             </div>
             <div className="space-y-2">
@@ -291,7 +328,7 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
                       rows={2}
                     />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <div className="space-y-2">
                       <Label>Quantity</Label>
                       <Input
@@ -300,6 +337,14 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
                         step="0.01"
                         value={item.quantity}
                         onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Unit</Label>
+                      <Input
+                        value={item.unit}
+                        onChange={(e) => updateLineItem(item.id, 'unit', e.target.value)}
+                        placeholder="e.g., Sft, Pcs"
                       />
                     </div>
                     <div className="space-y-2">

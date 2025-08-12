@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Printer } from "lucide-react";
 import { Quote } from "@/types/quotation";
 import { formatCurrency, formatDate, downloadPDF } from "@/utils/quoteUtils";
+import signatureLogo from "@/assets/signature-logo.png";
 
 interface QuotationDisplayProps {
   quote: Quote;
@@ -19,13 +20,31 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <div id="quotation-content" className="bg-card border rounded-lg p-8 print:border-0 print:shadow-none">
-        {/* Header */}
-        <div className="text-center border-b pb-6 mb-6">
-          <h1 className="text-3xl font-bold text-primary">{quote.businessInfo.name}</h1>
-          <p className="text-lg text-muted-foreground mt-2">{quote.businessInfo.tagline}</p>
-          <p className="text-sm text-muted-foreground mt-1">
-            {quote.businessInfo.address} — Phone: {quote.businessInfo.phone}
-          </p>
+        {/* Header with Logo and Watermark */}
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+            <img 
+              src={signatureLogo} 
+              alt="Signature Home Style Watermark" 
+              className="w-96 h-96 object-contain"
+            />
+          </div>
+          <div className="text-center border-b pb-6 mb-6 relative z-10">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <img 
+                src={signatureLogo} 
+                alt="Signature Home Style Logo" 
+                className="w-16 h-16 object-contain"
+              />
+              <div>
+                <h1 className="text-3xl font-bold text-primary">{quote.businessInfo.name}</h1>
+                <p className="text-lg text-muted-foreground">{quote.businessInfo.tagline}</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              {quote.businessInfo.address} — Phone: {quote.businessInfo.phone}
+            </p>
+          </div>
         </div>
 
         {/* Quote Details */}
@@ -35,6 +54,8 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
             <div className="space-y-2">
               <p><strong>Quote No:</strong> {quote.quoteNo}</p>
               <p><strong>Date:</strong> {formatDate(quote.date)}</p>
+              <p><strong>Customer Name:</strong> {quote.customerName}</p>
+              <p><strong>Customer Address:</strong> {quote.customerAddress}</p>
               <p><strong>Customer Reference:</strong> {quote.customerReference}</p>
             </div>
           </div>
@@ -51,6 +72,7 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
               <tr className="bg-muted">
                 <th className="border border-border p-3 text-left">Description</th>
                 <th className="border border-border p-3 text-center">Quantity</th>
+                <th className="border border-border p-3 text-center">Unit</th>
                 <th className="border border-border p-3 text-right">Rate</th>
                 <th className="border border-border p-3 text-right">Total</th>
               </tr>
@@ -60,6 +82,7 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
                 <tr key={item.id}>
                   <td className="border border-border p-3">{item.description}</td>
                   <td className="border border-border p-3 text-center">{item.quantity}</td>
+                  <td className="border border-border p-3 text-center">{item.unit}</td>
                   <td className="border border-border p-3 text-right">{formatCurrency(item.rate)}</td>
                   <td className="border border-border p-3 text-right">{formatCurrency(item.total)}</td>
                 </tr>
