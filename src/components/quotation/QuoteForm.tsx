@@ -173,48 +173,6 @@ const QuoteForm = ({ initialQuote, mode }: QuoteFormProps) => {
           </div>
         </div>
 
-        {/* Business Info */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Business Information</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label>Business Name</Label>
-                <Input
-                  value={businessInfo.name}
-                  readOnly
-                  className="bg-muted"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Tagline</Label>
-                <Input
-                  value={businessInfo.tagline}
-                  readOnly
-                  className="bg-muted"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Address</Label>
-                <Input
-                  value={businessInfo.address}
-                  readOnly
-                  className="bg-muted"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Phone</Label>
-                <Input
-                  value={businessInfo.phone}
-                  readOnly
-                  className="bg-muted"
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Quote Details */}
         <Card>
