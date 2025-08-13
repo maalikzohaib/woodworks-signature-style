@@ -49,7 +49,7 @@ const AdminDashboard = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <img 
-              src="/lovable-uploads/9f0bc495-7388-4045-8c3d-8736a190a654.png" 
+              src="/lovable-uploads/ec97b138-50b8-4a22-abef-525ffe71a0b4.png" 
               alt="Signature Home Style" 
               className="w-12 h-12 object-contain"
             />

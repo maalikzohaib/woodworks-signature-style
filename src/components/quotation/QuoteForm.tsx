@@ -11,7 +11,7 @@ import { Quote, LineItem, BusinessInfo } from "@/types/quotation";
 import { generateQuoteNumber, calculateLineTotal, calculateGrandTotal, formatCurrency } from "@/utils/quoteUtils";
 import { saveQuote, getBusinessInfo, saveBusinessInfo } from "@/utils/localStorage";
 import { toast } from "sonner";
-import signatureLogo from "@/assets/signature-logo.png";
+import signatureLogo from "/lovable-uploads/ec97b138-50b8-4a22-abef-525ffe71a0b4.png";
 
 interface QuoteFormProps {
   initialQuote?: Quote;

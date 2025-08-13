@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Printer, Share2 } from "lucide-react";
 import { Quote } from "@/types/quotation";
 import { formatCurrency, formatDate, downloadPDF } from "@/utils/quoteUtils";
-import signatureLogo from "@/assets/signature-logo.png";
+import signatureLogo from "/lovable-uploads/ec97b138-50b8-4a22-abef-525ffe71a0b4.png";
 
 interface QuotationDisplayProps {
   quote: Quote;
