@@ -47,9 +47,16 @@ const AdminDashboard = () => {
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold">Quotation Dashboard</h1>
-            <p className="text-muted-foreground">Manage your carpenter quotations</p>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/lovable-uploads/9f0bc495-7388-4045-8c3d-8736a190a654.png" 
+              alt="Signature Home Style" 
+              className="w-12 h-12 object-contain"
+            />
+            <div>
+              <h1 className="text-3xl font-bold">Quotation Dashboard</h1>
+              <p className="text-muted-foreground">Manage your carpenter quotations</p>
+            </div>
           </div>
           <div className="flex gap-3">
             <Button 
