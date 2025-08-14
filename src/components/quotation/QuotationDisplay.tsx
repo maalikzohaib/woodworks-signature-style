@@ -10,7 +10,7 @@ interface QuotationDisplayProps {
 
 const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
   const handleDownloadPDF = () => {
-    const fileName = `${quote.customerName || 'Quote'}-${quote.quoteNo}.pdf`;
+    const fileName = `Quote-${quote.quoteNo}-${quote.customerName?.replace(/[^a-zA-Z0-9]/g, '') || 'Customer'}.pdf`;
     downloadPDF("quotation-content", fileName);
   };
 
@@ -19,8 +19,20 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
   };
 
   const handleShare = () => {
-    const currentUrl = window.location.href.replace('/admin', '');
-    const message = `Hi! Please find your quotation from Signature Home Style below:\n\n${currentUrl}\n\nVisit our website: https://signnaturehomestyle.store`;
+    // Create user-facing quotation link (not admin)
+    const baseUrl = window.location.origin;
+    const quotationUrl = `${baseUrl}/quotation`;
+    const fileName = `Quote-${quote.quoteNo}-${quote.customerName?.replace(/[^a-zA-Z0-9]/g, '') || 'Customer'}`;
+    
+    const message = `Hi! Please find your quotation from Signature Home Style below:
+
+📋 Quote: ${quote.quoteNo}
+👤 Customer: ${quote.customerName}
+
+🔗 View & Download: ${quotationUrl}
+
+Visit our website: https://signnaturehomestyle.store`;
+    
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -33,7 +45,7 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
           <img 
             src={signatureLogo} 
             alt="Watermark" 
-            className="w-96 h-64 object-contain"
+            className="max-w-96 max-h-64 w-auto h-auto object-contain"
           />
         </div>
         
@@ -43,7 +55,7 @@ const QuotationDisplay = ({ quote }: QuotationDisplayProps) => {
             <img 
               src={signatureLogo} 
               alt="Signature Home Style" 
-              className="w-16 h-16 object-contain"
+              className="w-auto h-16 max-w-24 object-contain"
             />
             <div>
               <p className="text-lg text-muted-foreground font-medium">
