@@ -8,7 +8,11 @@ const Footer = () => {
       <div className="container mx-auto py-14">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="space-y-4">
-            <div className="text-2xl font-extrabold">Signature Home Style</div>
+            <img 
+              src="/lovable-uploads/ec97b138-50b8-4a22-abef-525ffe71a0b4.png" 
+              alt="Signature Home Style" 
+              className="h-12 w-auto object-contain" 
+            />
             <p className="text-sm text-muted-foreground">Luxury carpentry and interiors crafted to perfection. Doors, kitchens, wardrobes and bespoke furniture.</p>
           </div>
           <nav className="space-y-3">
@@ -42,9 +46,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-10 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Signature Home Style. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Signature Home Style. All rights reserved. (<a href="https://wa.me/923259885086?text=Hello%2C%20I%27m%20interested%20in%20your%20development%20work." target="_blank" rel="noopener" className="text-primary hover:underline">Developed by Muhammad Zohaib</a>)</p>
           <div className="flex items-center gap-4">
-            <p>Made with premium craftsmanship and attention to detail.</p>
+            
             <a 
               href="/admin/login" 
               className="text-primary hover:underline text-xs"

@@ -51,22 +51,19 @@ Visit our website: https://signnaturehomestyle.store`;
         
         {/* Header */}
         <div className="relative z-10 border-b border-border p-6">
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex flex-col items-center gap-2 mb-4">
             <img 
               src={signatureLogo} 
               alt="Signature Home Style" 
-              className="w-auto h-16 max-w-24 object-contain"
+              className="w-auto h-24 max-w-40 object-contain"
             />
-            <div>
-              <p className="text-lg text-muted-foreground font-medium">
-                {quote.businessInfo.tagline}
-              </p>
-            </div>
+            <p className="text-lg text-muted-foreground font-medium text-center">
+              Deal in All Kinds of Woodwork
+            </p>
           </div>
-          <div className="text-sm text-muted-foreground space-y-1">
+          <div className="text-sm text-muted-foreground space-y-1 text-center">
             <p>{quote.businessInfo.address}</p>
             <p>Phone: {quote.businessInfo.phone}</p>
-            <p>Website: https://signnaturehomestyle.store</p>
           </div>
         </div>
 
@@ -92,30 +89,28 @@ Visit our website: https://signnaturehomestyle.store`;
                   <span className="font-semibold min-w-[100px]">Address:</span>
                   <span className="text-sm leading-relaxed">{quote.customerAddress}</span>
                 </div>
-                <div className="flex">
-                  <span className="font-semibold min-w-[100px]">Reference:</span>
-                  <span>{quote.customerReference}</span>
-                </div>
               </div>
             </div>
             
-            <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-              <h3 className="font-bold text-primary mb-3">Payment Summary</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Grand Total:</span>
-                  <span className="font-bold text-primary">{formatCurrency(quote.grandTotal)}</span>
+            {/* Terms & Conditions - Only show if not empty */}
+            {quote.terms && quote.terms.trim() && (
+              <div className="border-t border-border pt-4 md:pt-0 md:border-t-0">
+                <h3 className="font-bold text-primary mb-3">Terms & Conditions</h3>
+                <div className="bg-muted/30 p-4 rounded-lg border border-border max-h-64 overflow-y-auto">
+                  <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">
+                    {quote.terms}
+                  </p>
                 </div>
-                <div className="flex justify-between">
-                  <span>Received Amount:</span>
-                  <span className="font-semibold text-green-600">{formatCurrency(quote.receivedAmount)}</span>
-                </div>
-                <div className="flex justify-between border-t border-primary/20 pt-2">
-                  <span className="font-bold">Outstanding Balance:</span>
-                  <span className="font-bold text-primary">{formatCurrency(quote.balance)}</span>
+                <div className="border-t border-border pt-4 md:pt-0 md:border-t-0">
+                  <h3 className="font-bold text-primary mb-3">Reference</h3>
+                  <div className="bg-muted/30 p-4 rounded-lg border border-border">
+                    <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">
+                      {quote.customerReference}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Items Table */}
@@ -149,17 +144,26 @@ Visit our website: https://signnaturehomestyle.store`;
             </div>
           </div>
 
-          {/* Terms & Conditions - Only show if not empty */}
-          {quote.terms && quote.terms.trim() && (
-            <div className="border-t border-border pt-6">
-              <h3 className="font-bold text-primary mb-3">Terms & Conditions</h3>
-              <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">
-                  {quote.terms}
-                </p>
+          {/* Payment Summary */}
+          <div className="border-t border-border pt-6">
+            <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
+              <h3 className="font-bold text-primary mb-3">Payment Summary</h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>Grand Total:</span>
+                  <span className="font-bold text-primary">{formatCurrency(quote.grandTotal)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Received Amount:</span>
+                  <span className="font-semibold text-green-600">{formatCurrency(quote.receivedAmount)}</span>
+                </div>
+                <div className="flex justify-between border-t border-primary/20 pt-2">
+                  <span className="font-bold">Outstanding Balance:</span>
+                  <span className="font-bold text-primary">{formatCurrency(quote.balance)}</span>
+                </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
 

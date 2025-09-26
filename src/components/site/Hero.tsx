@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const heroImg = "/lovable-uploads/2dbd548d-f840-4353-8dd0-ec28e23be25b.png"; // Kitchen
 
 const Hero = () => {
   const [pos, setPos] = useState({ x: 50, y: 50 });
+  const navigate = useNavigate();
   const style = useMemo(() => ({
     background: `radial-gradient(600px circle at ${pos.x}% ${pos.y}%, hsl(var(--primary)/0.18), transparent 60%)`,
   }), [pos]);
@@ -28,8 +30,8 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">Crafting Your Dream Spaces</h1>
           <p className="text-lg text-muted-foreground max-w-prose">Premium doors, kitchens, wardrobes and refined interiors handcrafted to your lifestyle. We combine time-honored artistry with modern precision.</p>
           <div className="flex flex-wrap gap-3">
-            <Button variant="hero" size="lg">Get a Quote</Button>
-            <Button variant="outline" size="lg">View Portfolio</Button>
+            <Button variant="hero" size="lg" onClick={() => window.open('https://wa.me/923004763229?text=Hello%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20custom%20woodwork%20from%20Signature%20Home%20Style.', '_blank')}>Get a Quote</Button>
+            <Button variant="outline" size="lg" onClick={() => navigate('/portfolio')}>View Portfolio</Button>
           </div>
           <div className="grid grid-cols-3 gap-6 pt-4">
             <Stat k="150+" v="Projects" />
